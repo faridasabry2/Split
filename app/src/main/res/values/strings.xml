@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Split</string>
+    <string name="top_button">Equal Split</string>
+    <string name="bottom_button">Split By Item</string>
 </resources>
