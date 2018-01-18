@@ -1,4 +1,4 @@
-package com.smith.split;
+package com.smith.split.Models;
 
 /**
  * Created by Farida Sabry on 1/16/18.

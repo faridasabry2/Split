@@ -1,4 +1,4 @@
-package com.smith.split;
+package com.smith.split.Models;
 
 import java.util.ArrayList;
 import java.util.HashMap;
