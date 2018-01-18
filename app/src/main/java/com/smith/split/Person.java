@@ -7,7 +7,7 @@ package com.smith.split;
 public class Person {
 
     private String name;
-    private int moneyOwed;
+    private float moneyOwed;
     
     public Person(String name) {
         this.name = name;
@@ -18,11 +18,11 @@ public class Person {
         return name;
     }
 
-    public int getMoneyOwed() {
+    public float getMoneyOwed() {
         return moneyOwed;
     }
 
-    public void addToMoneyOwed(int newAmount) {
+    public void addToMoneyOwed(float newAmount) {
         moneyOwed += newAmount;
     }
 

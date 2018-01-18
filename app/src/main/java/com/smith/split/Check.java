@@ -3,7 +3,6 @@ package com.smith.split;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -14,16 +13,16 @@ import java.util.Set;
 
 public class Check {
 
-    private int subTotal;
-    private int tip;
+    private float subTotal;
+    private float tip;
     private int numberOfPeople;
     private List<Item> checkItems;
     private Map<Item, List<Person>> receiptItemMap;
 
     /* Constructor */
-    public Check(int checkSubTotal, int tip, int numberOfPeople) {
+    public Check(float checkSubTotal, float tip, int numberOfPeople) {
         this.subTotal = checkSubTotal;
-        this.tip = this.tip;
+        this.tip = tip;
         this.numberOfPeople = numberOfPeople;
     }
 
@@ -43,7 +42,7 @@ public class Check {
         }
     }
 
-    public int getTotal() {
+    public float getTotal() {
         return subTotal + tip;
     }
 
@@ -76,7 +75,7 @@ public class Check {
      * splits check total equally based on number of people included
      * @return price each person should pay
      */
-    public int splitEqually() {
+    public float splitEqually() {
         return getTotal() /numberOfPeople;
     }
 
@@ -98,7 +97,7 @@ public class Check {
         }
 
         // divide up tip equally
-        int tipFraction = tip / numberOfPeople;
+        float tipFraction = tip / numberOfPeople;
 
         for(Person p: personSet) {
             p.addToMoneyOwed(tipFraction);

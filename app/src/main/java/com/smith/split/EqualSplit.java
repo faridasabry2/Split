@@ -3,20 +3,18 @@ package com.smith.split;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import java.text.DecimalFormat;
-
 public class EqualSplit extends AppCompatActivity {
 
-    private EditText input1;
-    private EditText input2;
-    private EditText input3;
-
-    private TextView tv_result;
+    private Check check;
+    private EditText numberOfPeopleEditText;
+    private EditText subTotalEditText;
+    private EditText tipEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,30 +23,22 @@ public class EqualSplit extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        input1 = (EditText) findViewById(R.id.people);
-        input2 = (EditText) findViewById(R.id.total);
-        input3 = (EditText) findViewById(R.id.editText3);
-
-        Button bt_calculate = (Button) findViewById(R.id.BUTTON);
-
-        tv_result = (TextView) findViewById(R.id.tv_result);
+        numberOfPeopleEditText = (EditText) findViewById(R.id.people);
+        subTotalEditText = (EditText) findViewById(R.id.total);
+        tipEditText = (EditText) findViewById(R.id.tip);
     }
+
     public void splitAction (View view) {
 
-        Button bt_calculate = (Button) findViewById(R.id.BUTTON);
-        makeCalculations();
+        int numPeople = Integer.parseInt(numberOfPeopleEditText.getText().toString());
+        float subTotal = Float.valueOf(subTotalEditText.getText().toString());
+        float tip = Float.valueOf(tipEditText.getText().toString());
+
+        check = new Check(subTotal, tip, numPeople);
+
+        TextView splitTextView = (TextView) findViewById(R.id.person_pay_textView);
+
+        float splitResult = check.splitEqually();
+        splitTextView.setText(String.format("Each person pays $%.2f", splitResult));
     }
-    private void makeCalculations() {
-
-     float n1 = Float.valueOf(input1.getText().toString());
-     float n2 = Float.valueOf(input2.getText().toString());
-     float n3 = Float.valueOf(input3.getText().toString());
-
-     float result = (n2/n1)+(n3/n1);
-
-     result = (float) (Math.round(result*100)/100);
-
-     tv_result.setText("Each person pays " + result);
-     }
-
 }
