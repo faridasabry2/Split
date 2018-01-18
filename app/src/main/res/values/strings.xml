@@ -4,4 +4,8 @@
     <string name="bottom_button">Split by item</string>
     <string name="BUTTON">Split!</string>
     <string name="add_button">Add</string>
+    <string name="screen"></string>
+    <string name="addbuttonsplitbyitem">Add Name</string>
+    <string name="enternameforitemsplit" ></string>
+    <string name="enter_a_new_item">Enter a new item</string>
 </resources>

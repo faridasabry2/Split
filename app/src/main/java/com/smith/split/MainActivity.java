@@ -11,7 +11,8 @@ import android.widget.ImageView;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG =
-    MainActivity.class.getSimpleName();;
+            MainActivity.class.getSimpleName();
+    ;
 
     //public static final String POST_KEY = "message";
 
@@ -22,13 +23,21 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
+
     }
 
-    public void buttonAction (View view) {
+    public void equalSplitButtonClick(View view) {
 
         Intent intent = new Intent(this, EqualSplit.class);
         startActivity(intent);
 
-        Log.i(TAG,"We pressed the button!");
+        Log.i(TAG, "We pressed the button!");
+    }
+
+    public void splitByItemButtonClick(View view) {
+
+        Intent intent = new Intent(this, ItemSplit.class);
+        startActivity(intent);
+
     }
 }
