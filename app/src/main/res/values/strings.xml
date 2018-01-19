@@ -6,6 +6,10 @@
     <string name="add_button">Add</string>
     <string name="screen"></string>
     <string name="addbuttonsplitbyitem">Add Name</string>
-    <string name="enternameforitemsplit" ></string>
+    <string name="enternameforitemsplit">hi</string>
     <string name="enter_a_new_name">Enter a new name</string>
+    <string name="enter_a_new_item">Enter Name of Person Sharing Bill</string>
+    <string name="scan_button">SCAN RECEIPT</string>
+    <string name="enter_button">ENTER ITEMS</string>
+
 </resources>
