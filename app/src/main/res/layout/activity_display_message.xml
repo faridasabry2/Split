@@ -46,7 +46,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:ems="10"
-            android:hint="Tips"
+            android:hint="Enter custom tip or choose below"
             android:inputType="number|numberDecimal"
             android:paddingLeft="5dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -65,7 +65,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.508"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.621">
 
             <Button
                 android:id="@+id/BUTTON"
@@ -78,7 +79,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tip"
                 tools:text="@string/BUTTON" />
 
             <TextView
@@ -91,7 +91,46 @@
                 android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 tools:layout_editor_absoluteY="294dp" />
+
         </RelativeLayout>
+
+        <RadioGroup
+            android:orientation="horizontal"
+            android:id="@+id/radioGroup"
+            android:layout_width="300dp"
+            android:layout_height="32dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.39">
+
+
+            <RadioButton
+                android:id="@+id/radioButton10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="10%" />
+
+            <RadioButton
+                android:id="@+id/radioButton15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="15%"/>
+
+            <RadioButton
+                android:id="@+id/radioButton20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="20%"/>
+        </RadioGroup>
 
     </android.support.constraint.ConstraintLayout>
 </android.support.constraint.ConstraintLayout>
