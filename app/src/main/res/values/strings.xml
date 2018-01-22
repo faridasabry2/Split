@@ -23,5 +23,8 @@
     <string name="ocr_failure">No text captured</string>
     <string name="ocr_error">"Error reading text: %1$s"</string>
     <string name="add_item">ADD ITEM</string>
+    <string name="doneButton">DONE</string>
+    <string name="finalView"></string>
+    <string name="calculate">Split!</string>
 </resources>
 

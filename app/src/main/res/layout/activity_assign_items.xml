@@ -76,7 +76,7 @@
             app:layout_constraintStart_toStartOf="parent">
 
             <Button
-                android:id="@+id/scanButton"
+                android:id="@+id/doneButton"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_alignLeft="@+id/listView"
@@ -85,7 +85,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_weight="1"
-                android:text="DONE"
+                android:text="@string/doneButton"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"

@@ -3,6 +3,8 @@ package com.smith.split;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -16,6 +18,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class AssignItems extends AppCompatActivity {
 
@@ -30,16 +33,17 @@ public class AssignItems extends AppCompatActivity {
     EditText itemPrice;
     Button addButton;
 
-    FragmentManager manager;
+    Button finalButton;
+
+    //FragmentManager manager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_assign_items);
 
-        manager=getFragmentManager();
 
-        itemsView = (ListView)findViewById(R.id.listView);
+        itemsView = (ListView) findViewById(R.id.listView);
         addButton = (Button) findViewById(R.id.addItemButton);
 
         itemName = (EditText) findViewById(R.id.itemEditText);
@@ -50,6 +54,13 @@ public class AssignItems extends AppCompatActivity {
 
         itemList = new ArrayList<>();
         priceList = new ArrayList<>();
+        ArrayList <HashMap<String,String>> hashBrown = new ArrayList<HashMap<String, String>>();
+
+        /*for(int i=0; i<itemName.length(); i++){
+            HashMap<String,String> maps = new HashMap<>();
+            HashMap.put("name", itemList.get(int));
+            arrayList.add(hashBrown);
+        }*/
 
         loadItemList();
 
@@ -67,15 +78,28 @@ public class AssignItems extends AppCompatActivity {
                 Log.i("whatevs", itemList.toString() + " -- " + priceList.toString());
             }
         });
+
+        //send to finalActivity when pressing doneButton
+        finalButton = (Button) findViewById(R.id.doneButton);
+
+        finalButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Context packageContext = getApplicationContext();
+                Intent intent = new Intent(packageContext, finalActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private final TextWatcher watcher = new TextWatcher() {
         @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after)
-        { }
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        }
+
         @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count)
-        {}
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+        }
+
         @Override
         public void afterTextChanged(Editable s) {
             if (isEmpty(itemName) || isEmpty(itemPrice)) {
@@ -92,7 +116,7 @@ public class AssignItems extends AppCompatActivity {
 
     private void loadItemList() {
         if (itemAdapter == null) {
-            itemAdapter = new ArrayAdapter<String>(this, R.layout.item_row, R.id.item_name, itemList);
+            itemAdapter = new SimpleAdapter<String>(this, R.layout.item_row, R.id.item_name, itemList);
             itemsView.setAdapter(itemAdapter);
         } else {
             itemAdapter.clear();
@@ -100,7 +124,7 @@ public class AssignItems extends AppCompatActivity {
             itemAdapter.notifyDataSetChanged();
         }
 
-        if(priceAdapter == null) {
+        if (priceAdapter == null) {
             priceAdapter = new ArrayAdapter<String>(this, R.layout.item_row, R.id.item_price, priceList);
             itemsView.setAdapter(priceAdapter);
         } else {
@@ -125,12 +149,6 @@ public class AssignItems extends AppCompatActivity {
         itemAdapter.notifyDataSetChanged();
         priceAdapter.notifyDataSetChanged();
     }
-
-    /*public void addA (View view){
-        FragmentA f1 = new FragmentA();
-        FragmentTransaction transaction= manager.beginTransaction();
-        transaction.add(R.id.,f1,"A");
-    }*/
 }
 
 
