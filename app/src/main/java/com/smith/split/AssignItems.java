@@ -18,16 +18,18 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+
 
 public class AssignItems extends AppCompatActivity {
+
+    //ArrayList<String> itemList;
+    //ArrayList<String> priceList;
 
     ArrayList<String> itemList;
     ArrayList<String> priceList;
 
     ArrayAdapter<String> itemAdapter;
     ArrayAdapter<String> priceAdapter;
-
     ListView itemsView;
     EditText itemName;
     EditText itemPrice;
@@ -54,7 +56,11 @@ public class AssignItems extends AppCompatActivity {
 
         itemList = new ArrayList<>();
         priceList = new ArrayList<>();
-        ArrayList <HashMap<String,String>> hashBrown = new ArrayList<HashMap<String, String>>();
+
+        /*ArrayList<HashMap<ArrayList, ArrayList>> hashBrown = new ArrayList<>();
+        HashMap<String, String> n = new HashMap<>();
+        n.put(itemList, priceList);
+        hashBrown.add(n);*/
 
         /*for(int i=0; i<itemName.length(); i++){
             HashMap<String,String> maps = new HashMap<>();
@@ -80,7 +86,7 @@ public class AssignItems extends AppCompatActivity {
         });
 
         //send to finalActivity when pressing doneButton
-        finalButton = (Button) findViewById(R.id.doneButton);
+        finalButton = findViewById(R.id.doneButton);
 
         finalButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -90,7 +96,6 @@ public class AssignItems extends AppCompatActivity {
             }
         });
     }
-
     private final TextWatcher watcher = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -116,7 +121,7 @@ public class AssignItems extends AppCompatActivity {
 
     private void loadItemList() {
         if (itemAdapter == null) {
-            itemAdapter = new SimpleAdapter<String>(this, R.layout.item_row, R.id.item_name, itemList);
+            itemAdapter = new ArrayAdapter<String>(this, R.layout.item_row, R.id.item_name, itemList);
             itemsView.setAdapter(itemAdapter);
         } else {
             itemAdapter.clear();
@@ -149,6 +154,12 @@ public class AssignItems extends AppCompatActivity {
         itemAdapter.notifyDataSetChanged();
         priceAdapter.notifyDataSetChanged();
     }
+
+
+    /*public void addA (View view){
+        FragmentA f1 = new FragmentA();
+        FragmentTransaction transaction= manager.beginTransaction();
+        transaction.add(R.id.,f1,"A");
+    }*/
+
 }
-
-

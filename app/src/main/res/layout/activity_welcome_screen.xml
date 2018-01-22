@@ -6,14 +6,51 @@
     android:layout_height="match_parent"
     tools:context="com.smith.split.WelcomeScreen">
 
+<<<<<<< HEAD
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="282dp"
         android:layout_height="241dp"
+=======
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+>>>>>>> 34c0f616333283f05ea0d1f7a73190b305a27434
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+<<<<<<< HEAD
         app:srcCompat="@drawable/logo" />
+=======
+        app:layout_constraintVertical_bias="0.498">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/screen"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            app:srcCompat="@mipmap/ic_launcher" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed"
+            android:text="The Check Splitting App"
+            android:textAlignment="center"
+            android:textColor="@color/colorTitle"
+            android:textSize="32dp" />
+
+    </LinearLayout>
+
+>>>>>>> 34c0f616333283f05ea0d1f7a73190b305a27434
 </android.support.constraint.ConstraintLayout>
