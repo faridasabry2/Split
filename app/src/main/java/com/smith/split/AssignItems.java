@@ -22,9 +22,6 @@ import java.util.ArrayList;
 
 public class AssignItems extends AppCompatActivity {
 
-    //ArrayList<String> itemList;
-    //ArrayList<String> priceList;
-
     ArrayList<String> itemList;
     ArrayList<String> priceList;
 
@@ -86,15 +83,6 @@ public class AssignItems extends AppCompatActivity {
         });
 
         //send to finalActivity when pressing doneButton
-        finalButton = findViewById(R.id.doneButton);
-
-        finalButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Context packageContext = getApplicationContext();
-                Intent intent = new Intent(packageContext, finalActivity.class);
-                startActivity(intent);
-            }
-        });
     }
     private final TextWatcher watcher = new TextWatcher() {
         @Override

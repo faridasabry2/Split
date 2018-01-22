@@ -76,7 +76,7 @@
             app:layout_constraintStart_toStartOf="parent">
 
             <Button
-                android:id="@+id/scanButton"
+                android:id="@+id/doneButton"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_alignLeft="@+id/listView"

@@ -23,11 +23,13 @@ public class ItemSplit extends AppCompatActivity {
     ListView namesView;
     EditText nameText;
     Button addButton;
+    Button enterItemsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_split);
+
 
         namesView = (ListView)findViewById(R.id.listView);
         addButton = (Button) findViewById(R.id.addItemButton);
@@ -60,7 +62,7 @@ public class ItemSplit extends AppCompatActivity {
         });
 
         // SWITCH TO MANUALLY ENTER ITEMS
-        Button enterItemsButton = (Button) findViewById(R.id.enterItemsButton);
+        enterItemsButton = (Button) findViewById(R.id.enterItemsButton);
 
         enterItemsButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
