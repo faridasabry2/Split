@@ -126,11 +126,11 @@ public class AssignItems extends AppCompatActivity {
         priceAdapter.notifyDataSetChanged();
     }
 
-    public void addA (View view){
+    /*public void addA (View view){
         FragmentA f1 = new FragmentA();
         FragmentTransaction transaction= manager.beginTransaction();
         transaction.add(R.id.,f1,"A");
-    }
+    }*/
 }
 
 
