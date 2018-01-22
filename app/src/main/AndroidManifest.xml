@@ -3,6 +3,7 @@
     package="com.smith.split">
 
     <uses-permission android:name="android.permission.CAMERA" />
+
     <uses-feature android:name="android.hardware.camera" />
 
     <application
@@ -15,6 +16,7 @@
         <activity android:name=".WelcomeScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -22,6 +24,7 @@
         <activity android:name=".ItemSplit" />
         <activity android:name=".EqualSplit" />
         <activity android:name=".CameraCapture" />
+        <activity android:name=".EnterItems" />
         <activity android:name=".AssignItems"></activity>
     </application>
 

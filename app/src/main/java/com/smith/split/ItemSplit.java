@@ -4,6 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -30,6 +33,7 @@ public class ItemSplit extends AppCompatActivity {
         addButton = (Button) findViewById(R.id.addItemButton);
         nameText = (EditText) findViewById(R.id.nameEditText);
 
+        addButton.setEnabled(false);
         nameList = new ArrayList<>();
         loadNameList();
 
@@ -41,6 +45,8 @@ public class ItemSplit extends AppCompatActivity {
                 adapter.notifyDataSetChanged();
             }
         });
+
+        nameText.addTextChangedListener(watcher);
 
         // SWITCH TO CAMERA VIEW TO SCAN
         Button scanButton = (Button) findViewById(R.id.scanButton);
@@ -59,11 +65,33 @@ public class ItemSplit extends AppCompatActivity {
         enterItemsButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Context packageContext = getApplicationContext();
-                Intent intent = new Intent(packageContext, AssignItems.class);
+                Intent intent = new Intent(packageContext, EnterItems.class);
                 startActivity(intent);
             }
         });
 
+    }
+
+
+    private final TextWatcher watcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after)
+        { }
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count)
+        {}
+        @Override
+        public void afterTextChanged(Editable s) {
+            if (isEmpty(nameText)) {
+                addButton.setEnabled(false);
+            } else {
+                addButton.setEnabled(true);
+            }
+        }
+    };
+
+    private boolean isEmpty(EditText editText) {
+        return editText.getText().toString().trim().length() == 0;
     }
 
     private void loadNameList() {
@@ -82,10 +110,11 @@ public class ItemSplit extends AppCompatActivity {
         View parent = (View) view.getParent();
         TextView personTextView = (TextView) findViewById(R.id.person_name);
         String person = String.valueOf(personTextView.getText());
+
+        Log.i("TAG", person.toString());
+
         nameList.remove(person);
         adapter.notifyDataSetChanged();
-
-//        loadNameList();
     }
 
 }

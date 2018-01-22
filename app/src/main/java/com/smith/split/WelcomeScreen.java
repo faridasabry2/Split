@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ImageView;
 
 public class WelcomeScreen extends AppCompatActivity {
 
@@ -26,5 +27,8 @@ public class WelcomeScreen extends AppCompatActivity {
                 finish();
             }
         }, 3000);
+
+        ImageView image = (ImageView) findViewById(R.id.logo);
+        image.setImageResource(R.drawable.logo_split);
     }
 }
