@@ -1,5 +1,8 @@
 package com.smith.split;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -27,10 +30,14 @@ public class AssignItems extends AppCompatActivity {
     EditText itemPrice;
     Button addButton;
 
+    FragmentManager manager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_assign_items);
+
+        manager=getFragmentManager();
 
         itemsView = (ListView)findViewById(R.id.listView);
         addButton = (Button) findViewById(R.id.addItemButton);
@@ -119,6 +126,11 @@ public class AssignItems extends AppCompatActivity {
         priceAdapter.notifyDataSetChanged();
     }
 
+    public void addA (View view){
+        FragmentA f1 = new FragmentA();
+        FragmentTransaction transaction= manager.beginTransaction();
+        transaction.add(R.id.,f1,"A");
+    }
 }
 
 
